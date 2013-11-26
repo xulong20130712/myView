@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myview"
+    android:versionCode="01"
+    android:versionName="1.10" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    
+    <permission android:name="android.mypermission"
+        android:protectionLevel="normal"></permission>
+    
+    <uses-permission android:name="android.mypermission"/>
+	<uses-permission android:name="mypermission"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppBaseTheme" >
+        <activity
+            android:name="com.myview.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.umeng.common.net.DownloadingService"
+            android:exported="true"
+            android:process=":DownloadingService" >
+        </service>
+    </application>
+    
+    <meta-data android:value="50bc4c145270151ff5000147" android:name="UMENG_APPKEY"></meta-data>
+		<!-- 
+			正式版:china
+			开发版:develop
+			PAD开发板:pad_develop
+		 -->
+        <meta-data android:value="develop" android:name="UMENG_CHANNEL"/>
+</manifest>
